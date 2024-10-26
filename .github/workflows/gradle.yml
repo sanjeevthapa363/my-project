@@ -37,8 +37,8 @@ jobs:
     - name: Build with Gradle Wrapper
       run: ./gradlew build
 
-    # - name: Install tree
-    #   run: sudo apt-get install -y tree
+    - name: Install tree
+      run: sudo apt-get install -y tree
 
     # - name: Print file structure
     #   run: tree -L 3  # Adjust the depth with `-L` as needed
@@ -64,5 +64,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
+        context: .
         push: true
         tags: ${{secrets.DOCKER_USERNAME}}/gradle-app:latest
